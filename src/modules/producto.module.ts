@@ -1,7 +1,6 @@
 import { productoModel, listaProductoModel, editarProductos } from "../models/producto.model";
 import { axiosInstance } from "../config";
 import Swal from 'sweetalert2'
-import { data } from "jquery";
 const ListaProductos = require("./../components/ListaProductos.hbs")
 const editarProductosVista = require('./../components/editarProductosVista.hbs')
 
