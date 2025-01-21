@@ -1,0 +1,36 @@
+<table class="table table-striped my-0 dataTable no-footer" aria-describedby="datatables-dashboard-projects_info">
+    <h5 class="card-title mb-0">Almacen</h5>
+    <thead>
+        <tr>
+            <th class="sorting sorting_asc">Numero</th>
+            <th class="sorting sorting_asc">Fruta</th>
+            <th class="d-none d-xl-table-cell sorting">Precio</th>
+            <th class="d-none d-xl-table-cell sorting">Cantidad</th>
+            <th class="d-none d-xl-table-cell sorting">Fecha Ingreso</th>
+            <th class="d-none d-xl-table-cell sorting">Editar</th>
+            <th class="d-none d-xl-table-cell sorting">Formulario</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each productos}}
+        <tr>
+            <td>{{id_producto}}</td>
+            <td>{{nombre_producto}}</td>
+            <td>{{precio}}</td>
+            <td>{{cantidad}}</td>
+            <td>{{fecha_ingreso}}</td>
+            <td>
+                <button onclick="app.productoModule.mostrarInformacionProductos({{id_producto}});" type="button"
+                    class="fa-solid fa-pen-to-square btn btn-primary" id="mostrar">
+                    Editar
+                </button>
+            </td>
+            <td>
+                <div id="productoEditar">
+                    <div id="formEditar"></div>
+                </div>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

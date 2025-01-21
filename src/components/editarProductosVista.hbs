@@ -1,0 +1,19 @@
+{{#each productosEditar}}
+<form>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Nombre Producto</label>
+        <input type="text" class="form-control" id="editarNombreProducto" placeholder="{{nombre_producto}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Precio</label>
+        <input type="number" class="form-control" id="editarPrecio" placeholder="{{precio}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Cantidad</label>
+        <input type="number" class="form-control" id="editarCantidad" placeholder="{{cantidad}}">
+    </div>
+    <button type="button" onclick="app.productoModule.editarRegistro();" class="btn btn-primary">Guardar</button>
+
+     <button type="button" class="btn btn-secondary" onclick="app.productoModule.cerraFormulario()">Cerrar</button>
+</form>
+{{/each}}

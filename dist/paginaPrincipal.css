@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    /* Centra los cards horizontalmente */
+    align-items: center;
+    /* Centra los cards verticalmente */
+    gap: 29px;
+    /* Espacio entre los cards */
+    height: 80vh;
+    /* Ocupa toda la altura de la ventana */
+}
+
+.card {
+    width: 18rem;
+    /* Ancho fijo para las cards */
+}
+
+ul {
+    align-items: center;
+    margin-right: 19%;
+}
+
+h1 {
+    align-items: center;
+    margin-left: 5%;
+}
+
+.row {
+    width: 100%;
+}
+
+a {
+    margin-left: 5%;
+}
