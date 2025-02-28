@@ -11,8 +11,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const producto_module_1 = __importDefault(__webpack_require__(1));
+const usuario_module_1 = __importDefault(__webpack_require__(29));
 module.exports = {
     productoModule: producto_module_1.default,
+    usuarioModule: usuario_module_1.default
 };
 
 
@@ -10074,6 +10076,68 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
   return ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"productosEditar") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":1,"column":0},"end":{"line":19,"column":9}}})) != null ? stack1 : "");
 },"useData":true});
 
+/***/ }),
+/* 29 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const config_1 = __webpack_require__(2);
+const sweetalert2_1 = __importDefault(__webpack_require__(4));
+class usuarioModule {
+    constructor() {
+        this._usuario = [];
+    }
+    iniciarSesion() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let datos = {
+                usuario: document.querySelector("#usuario").value,
+                contrasena: document.querySelector("#password").value
+            };
+            yield config_1.axiosInstance.post("login", datos).then((response) => {
+                console.log("Respuesta del servidor:", response); // Verifica qué contiene la respuesta
+                if (response.data.token) {
+                    sessionStorage.setItem("token", response.data.token);
+                    console.log("La acción fue realizada");
+                    sweetalert2_1.default.fire({
+                        icon: "success",
+                        title: "Inicio de sesión exitoso",
+                        text: "Redirigiendo...",
+                        timer: 2000, // Espera 2 segundos antes de redirigir
+                        showConfirmButton: false
+                    });
+                    // 🔹 Redirigir después de 2 segundos
+                    setTimeout(() => {
+                        window.location.href = "pagina.html"; // 🔹 Cambia por tu URL de destino
+                    }, 2000);
+                }
+            }).catch(error => {
+                console.log("Error en la solicitud", error);
+                sweetalert2_1.default.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Error al iniciar sesion",
+                });
+            });
+        });
+    }
+}
+exports["default"] = new usuarioModule();
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -10086,7 +10150,7 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 /******/ 		        // webpack-livereload-plugin
 /******/ 		        (function() {
 /******/ 		          if (typeof window === "undefined") { return };
-/******/ 		          var id = "webpack-livereload-plugin-script-ee0f3da5dbcb067f";
+/******/ 		          var id = "webpack-livereload-plugin-script-de0d1670ec3cd3f3";
 /******/ 		          if (document.getElementById(id)) { return; }
 /******/ 		          var el = document.createElement("script");
 /******/ 		          el.id = id;

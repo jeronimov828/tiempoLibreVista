@@ -49,5 +49,15 @@
 </body>
 <script src="http://localhost:35729/livereload.js"></script>
 <script src="js/bundle.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const token = sessionStorage.getItem("token"); // Obtener el token
+
+        if (!token) {
+            // Redirigir al login si no hay token
+            window.location.href = "login.html"; // Cambia por tu página de inicio de sesión
+        }
+    });
+</script>
 
 </html>
